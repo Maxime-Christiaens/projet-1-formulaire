@@ -1,9 +1,11 @@
 html{
     height: 100vh;
     body{
-        border: 5px solid red;
         box-sizing: border-box;
         height: 100vh;
+        .row{
+            margin-bottom : 0px;
+        }
     }
 }
 
