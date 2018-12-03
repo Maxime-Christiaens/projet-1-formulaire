@@ -10,11 +10,22 @@
 </head>
 <body>
     <div class="row">
-        <form action="" class="col s12">
+    <img class="col s4 push-s4 pull-s4" src="imgs/hackers-poulette-logo.png" alt="Logo de hackers poulette">
+        <form action="" class="col s8 offset-s2">
             <div class="row">
-                <div class="input-field col s3">
+                <div class="input-field col s3 push-s2">
                     <input name="prenom" id="prenom" type="text" class="validate">
                     <label for="prenom">Prenom</label>
+                </div>
+                <div class="input-field col s3 push-s4">
+                    <input name="nom" id="nom" type="text" class="validate">
+                    <label for="nom">Nom</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s8 push-s2">
+                    <input type="email" id="email">
+                    <label for="email">E-mail</label>
                 </div>
             </div>
         </form>
