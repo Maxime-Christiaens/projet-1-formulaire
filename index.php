@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Materialize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    
 </head>
 <body>
+    <?php
+    include "php/formu.php";
+    ?>
     <div class="row bg-color formuDiv">
         <div class="col s4 push-s4 pull-s4">
             <img class="responsive-img" src="imgs/hackers-poulette-logo.png" alt="Logo de hackers poulette">
@@ -20,17 +22,17 @@
             </div>
             <div class="row">
                 <div class="input-field col s3 push-s2">
-                    <input name="prenom" id="prenom" type="text" class="validate">
+                    <input name="prenom" id="prenom" type="text" class="validate" required="required">
                     <label for="prenom">Prenom</label>
                 </div>
                 <div class="input-field col s3 push-s4">
-                    <input name="nom" id="nom" type="text" class="validate">
+                    <input name="nom" id="nom" type="text" class="validate" required="required">
                     <label for="nom">Nom</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s8 push-s2">
-                    <input type="email" id="email" class="validate">
+                    <input name="email" type="email" id="email" class="validate" required="required">
                     <label for="email">E-mail</label>
                 </div>
             </div>
@@ -38,9 +40,9 @@
                 <div class="input-field col s2 push-s2">
                     <select name="choix" id="choix">
                         <optgroup label="Quelle est ton choix ?">
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 2</option>
+                            <option value="Option 1">Option 1</option>
+                            <option value="Option 2">Option 2</option>
+                            <option value="Option 3">Option 2</option>
                         </optgroup>
                     </select>
                     <label for="choix">Quel est ton choix ?</label>
@@ -61,7 +63,7 @@
             </div>
             <div class="row">
                 <div class="input-field col s8 push-s2">
-                    <textarea class="materialize-textarea" name="message" id="message" ></textarea>
+                    <textarea class="materialize-textarea" name="message" id="message" required="required"></textarea>
                     <label for="message">Un message à nous transmettre ?</label>
                 </div>
             </div>
