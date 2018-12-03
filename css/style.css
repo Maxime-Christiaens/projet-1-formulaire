@@ -1,0 +1,11 @@
+html {
+  height: 100vh;
+}
+
+html body {
+  border: 5px solid red;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 100vh;
+}
+/*# sourceMappingURL=style.css.map */
