@@ -24,35 +24,55 @@
                     <label for="prenom">Prenom</label>
                 </div>
                 <div class="input-field col s3 push-s4">
-                    <input value="<?php session_start(); echo($_SESSION["nom"]); ?>" name="nom" id="nom" type="text" class="validate" required="required">
+                    <input value="<?php echo($_SESSION["nom"]); ?>" name="nom" id="nom" type="text" class="validate" required="required">
                     <label for="nom">Nom</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s8 push-s2">
-                    <input value="<?php session_start(); echo($_SESSION["email"]); ?>" name="email" type="email" id="email" class="validate" required="required">
+                    <input value="<?php echo($_SESSION["email"]); ?>" name="email" type="email" id="email" class="validate" required="required">
                     <label for="email">E-mail</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s2 push-s2">
-                    <select multiple value="<?php session_start(); echo($_SESSION["choix"]); ?>" name="choix[]" id="choix">
+                    <select multiple value="<?php echo($_SESSION["choix"]); ?>" name="choix[]" id="choix">
                         <optgroup label="Quelle est ton choix ?">
-                            <option value="Option 1">Option 1</option>
-                            <option value="Option 2">Option 2</option>
-                            <option value="Option 3">Option 3</option>
-                            <option value="Option 4">Option 4</option>
-                            <option value="Option 5">Option 5</option>
+                            <option value="Option 1" <?php 
+                            foreach ($_SESSION["choix"] as $value){ //permet de remettre le choix en séléctionné s'il a été précédemmment séléctionné
+                                if($value == "Option 1" ){
+                                    echo("selected");}
+                            }?> >Option 1</option>
+                            <option <?php 
+                            foreach ($_SESSION["choix"] as $value){
+                                if($value == "Option 2" ){
+                                    echo("selected");}
+                            }?> value="Option 2">Option 2</option>
+                            <option <?php 
+                            foreach ($_SESSION["choix"] as $value){
+                                if($value == "Option 3" ){
+                                    echo("selected");}
+                            }?> value="Option 3">Option 3</option>
+                            <option <?php 
+                            foreach ($_SESSION["choix"] as $value){
+                                if($value == "Option 4" ){
+                                    echo("selected");}
+                            }?> value="Option 4">Option 4</option>
+                            <option <?php 
+                            foreach ($_SESSION["choix"] as $value){
+                                if($value == "Option 5" ){
+                                    echo("selected");}
+                            }?> value="Option 5">Option 5</option>
                         </optgroup>
                     </select>
                     <label for="choix">Quel est ton choix ?</label>
                 </div>
                 <div class="input-field col s2 push-s3">
-                    <input value="<?php session_start(); echo($_SESSION["country"]); ?>" name="country" id="country" type="text" class="validate" required="required">
+                    <input value="<?php echo($_SESSION["country"]); ?>" name="country" id="country" type="text" class="validate" required="required">
                     <label for="country">Pays</label>
                 </div>
                 <div class="input-field col s2 push-s4">
-                    <select value="<?php session_start(); echo($_SESSION["sexe"]); ?>" name="sexe" id="sexe">
+                    <select value="<?php echo($_SESSION["sexe"]); ?>" name="sexe" id="sexe">
                         <optgroup label="Quelle est ton genre ?">
                             <option value="Homme">Masculin</option>
                             <option value="Femme" 
