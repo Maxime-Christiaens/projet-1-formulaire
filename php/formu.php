@@ -41,8 +41,6 @@ foreach($_SESSION["choix"] as $value){ //génère
         }
     }
 }
-echo("k = ".$k);
-echo(" Nombre d'option séléctionner = ".count($_SESSION["choix"]));
 //Si la longueur du tableau correspond au nombre de valeur correct alors OK et stocke true dans une variable qui servira d'interrupteur
 
 $choixCheck = false;
@@ -68,11 +66,11 @@ if (isset($_POST["prenom"]) && isset($_POST["nom"]) && isset($_POST["email"]) &&
 
     $result = filter_input_array(INPUT_POST, $options);
 
-    if ($result != null and $result != false) {
+/*     if ($result != null and $result != false) {
         echo "Tous les champs ont été nettoyés !<br>";
     } else {
         echo "Un champ est vide ou n'est pas correct!";
-    }
+    } 
     //vérifie si la désinféction a été efféctué avec succés
 
 /*     foreach ($result as $key => $value) {
@@ -88,11 +86,10 @@ if (isset($_POST["prenom"]) && isset($_POST["nom"]) && isset($_POST["email"]) &&
         <div class="col s4 push-s4 pull-s4">
             <img class="responsive-img" src="../imgs/hackers-poulette-logo.png" alt="Logo de hackers poulette">
         </div>
-        <form action="php/formu.php" method="POST" class="col s10 offset-s1">
-            <div class="row">
+        <div class="row">
             </div>
             <div class="row">
-                <div class="input-field col s3 push-s2">
+                <div class="input-field col s3 push-s3">
                     <h6><?php session_start(); echo("Votre prenom : ".$_SESSION["prenom"]); ?></h6>
                 </div>
                 <div class="input-field col s3 push-s4">
@@ -100,17 +97,17 @@ if (isset($_POST["prenom"]) && isset($_POST["nom"]) && isset($_POST["email"]) &&
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s8 push-s2">
+                <div class="input-field col s8 push-s3">
                 <h6><?php echo("Votre email : ".$_SESSION["email"]); ?></h6>
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s8 push-s2">
-                    <h6><?php echo("Vos Options : "); foreach($_SESSION["choix"] as $value){echo($value." ");} ?></h6>
+                <div class="input-field col s8 push-s3">
+                    <h6><?php echo("Vos options : "); foreach($_SESSION["choix"] as $value){echo($value." ");} ?></h6>
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s3 push-s2">
+                <div class="input-field col s3 push-s3">
                     <h6><?php echo("Votre pays = ".$_SESSION["country"]); ?></h6>
                 </div>
                 <div class="input-field col s3 push-s4">
@@ -118,24 +115,26 @@ if (isset($_POST["prenom"]) && isset($_POST["nom"]) && isset($_POST["email"]) &&
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s6 push-s2">
+                <div class="input-field col s6 push-s3">
                     <h6><?php echo("Votre message = ".$_SESSION["message"]); ?></h6>
                 </div>
             </div>
             <div class="row">
-                <button class=" col s2 push-s5 waves-effect waves-light btn" type="submit"> 
+                <a href="../" class=" col s2 push-s3 waves-effect waves-light btn red lighten-2"> 
+                    Modifier le formulaire
+                </a>
+                <a href="#" class=" col s2 push-s5 waves-effect waves-light btn" > 
                     Valider le formulaire
-                </button>
+                </a>
             </div>
-        </form>
-    </div>
+        </div>
     <?php
 }
 else{
 ?>
 <h2>Il y a des erreurs, veuillez remplir de nouveau le questionnaire</h2>
-<a href="../index.php">
-    Retour
+<a href="../" class=" col s2 push-s3 waves-effect waves-light btn red lighten-2"> 
+    Modifier le formulaire
 </a>
 <?php
 }
