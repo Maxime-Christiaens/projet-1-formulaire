@@ -36,7 +36,7 @@
             </div>
             <div class="row">
                 <div class="input-field col s2 push-s2">
-                    <select multiple value="<?php session_start(); echo($_SESSION["choix"]); ?>" name="choix" id="choix">
+                    <select multiple value="<?php session_start(); echo($_SESSION["choix"]); ?>" name="choix[]" id="choix">
                         <optgroup label="Quelle est ton choix ?">
                             <option value="Option 1">Option 1</option>
                             <option value="Option 2">Option 2</option>
