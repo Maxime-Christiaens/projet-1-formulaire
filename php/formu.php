@@ -90,15 +90,15 @@ if (isset($_POST["prenom"]) && isset($_POST["nom"]) && isset($_POST["email"]) &&
             </div>
             <div class="row">
                 <div class="input-field col s3 push-s3">
-                    <h6><?php session_start(); echo("Votre prenom : ".$_SESSION["prenom"]); ?></h6>
+                    <h6><?php echo("Votre prenom : ".$result["prenom"]); ?></h6>
                 </div>
                 <div class="input-field col s3 push-s4">
-                <h6><?php echo("Votre nom : ".$_SESSION["nom"]); ?></h6>
+                <h6><?php echo("Votre nom : ".$result["nom"]); ?></h6>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s8 push-s3">
-                <h6><?php echo("Votre email : ".$_SESSION["email"]); ?></h6>
+                <h6><?php echo("Votre email : ".$result["email"]); ?></h6>
                 </div>
             </div>
             <div class="row">
@@ -108,15 +108,15 @@ if (isset($_POST["prenom"]) && isset($_POST["nom"]) && isset($_POST["email"]) &&
             </div>
             <div class="row">
                 <div class="input-field col s3 push-s3">
-                    <h6><?php echo("Votre pays = ".$_SESSION["country"]); ?></h6>
+                    <h6><?php echo("Votre pays = ".$result["country"]); ?></h6>
                 </div>
                 <div class="input-field col s3 push-s4">
-                    <h6><?php echo("Votre genre = ".$_SESSION["sexe"]); ?></h6>
+                    <h6><?php echo("Votre genre = ".$result["sexe"]); ?></h6>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6 push-s3">
-                    <h6><?php echo("Votre message = ".$_SESSION["message"]); ?></h6>
+                    <h6><?php echo("Votre message = ".$result["message"]); ?></h6>
                 </div>
             </div>
             <div class="row">
@@ -132,7 +132,7 @@ if (isset($_POST["prenom"]) && isset($_POST["nom"]) && isset($_POST["email"]) &&
 }
 else{
 ?>
-<h2>Il y a des erreurs, veuillez remplir de nouveau le questionnaire</h2>
+<h3>Il y a des erreurs, veuillez remplir de nouveau le questionnaire</h3>
 <a href="../" class=" col s2 push-s3 waves-effect waves-light btn red lighten-2"> 
     Modifier le formulaire
 </a>
