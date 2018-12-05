@@ -20,18 +20,21 @@
             </div>
             <div class="row">
                 <div class="input-field col s3 push-s2">
-                    <input value="<?php session_start(); echo($_SESSION["prenom"]); ?>" name="prenom" id="prenom" type="text" class="validate" required="required">
+                    <input value="<?php session_start(); echo($_SESSION["prenom"]); ?>" name="prenom" id="prenom" type="text" class="validate">
                     <label for="prenom">Prenom</label>
+                    <p><?php echo($_SESSION["ErrorPrenom"]); ?></p>
                 </div>
                 <div class="input-field col s3 push-s4">
-                    <input value="<?php echo($_SESSION["nom"]); ?>" name="nom" id="nom" type="text" class="validate" required="required">
+                    <input value="<?php echo($_SESSION["nom"]); ?>" name="nom" id="nom" type="text" class="validate">
                     <label for="nom">Nom</label>
+                    <p><?php echo($_SESSION["ErrorNom"]); ?></p>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s8 push-s2">
-                    <input value="<?php echo($_SESSION["email"]); ?>" name="email" type="email" id="email" class="validate" required="required">
+                    <input value="<?php echo($_SESSION["email"]); ?>" name="email" type="email" id="email" class="validate">
                     <label for="email">E-mail</label>
+                    <p><?php echo($_SESSION["ErrorEmail"]); ?></p>
                 </div>
             </div>
             <div class="row">
@@ -68,8 +71,9 @@
                     <label for="choix">Quel est ton choix ?</label>
                 </div>
                 <div class="input-field col s2 push-s3">
-                    <input value="<?php echo($_SESSION["country"]); ?>" name="country" id="country" type="text" class="validate" required="required">
+                    <input value="<?php echo($_SESSION["country"]); ?>" name="country" id="country" type="text" class="validate">
                     <label for="country">Pays</label>
+                    <p><?php echo($_SESSION["ErrorCountry"]); ?></p>
                 </div>
                 <div class="input-field col s2 push-s4">
                     <select value="<?php echo($_SESSION["sexe"]); ?>" name="sexe" id="sexe">
@@ -89,8 +93,9 @@
             </div>
             <div class="row">
                 <div class="input-field col s8 push-s2">
-                    <textarea value="Bonsoir" class="materialize-textarea" name="message" id="message" required="required"><?php session_start(); echo($_SESSION["message"]); ?></textarea>
+                    <textarea value="Bonsoir" class="materialize-textarea" name="message" id="message"><?php session_start(); echo($_SESSION["message"]); ?></textarea>
                     <label for="message">Un message à nous transmettre ?</label>
+                    <p><?php echo($_SESSION["ErrorMessage"]); ?></p>
                 </div>
             </div>
             <div class="row">

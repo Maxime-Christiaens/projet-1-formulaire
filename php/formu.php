@@ -18,14 +18,19 @@ session_start();
 $_SESSION["prenom"] = $_POST["prenom"];
 $_SESSION["nom"] = $_POST["nom"];
 $_SESSION["email"] = $_POST["email"];
-$_SESSION["choix"] = $_POST["choix"];
 $_SESSION["sexe"] = $_POST["sexe"];
 $_SESSION["country"] = $_POST["country"];
 $_SESSION["message"] = $_POST["message"];
-
+//si $choix est vide mets l'option 1 par défaut
+if(empty($_POST["choix"])){
+    $_POST["choix"] = ["Option 1"];
+}
+$_SESSION["choix"] = $_POST["choix"];
 //////////////////
 //Filtrage Choix//
 //////////////////
+
+
 $AllChoice = ["Option 1", "Option 2", "Option 3", "Option 4", "Option 5"];
 //stock tout les variables existantes
 $k = 0;
@@ -48,13 +53,44 @@ $choixCheck = false;
 if($k == count($_SESSION["choix"])){
 $choixCheck = true;
 }
-
-////////////
+//////////////////////
+///Message d'erreurs//
+//////////////////////
+    if (empty($_POST["prenom"])){
+        $_SESSION["ErrorPrenom"] = "Veuillez écrire votre prénom";
+    }
+    else{
+        $_SESSION["ErrorPrenom"] = "";
+    }
+    if (empty($_POST["nom"])){
+        $_SESSION["ErrorNom"] = "Veuillez écrire votre nom";
+    }
+    else{
+        $_SESSION["ErrorNom"] = "";
+    }
+    if (empty($_POST["email"])){
+        $_SESSION["ErrorEmail"] = "Veuillez écrire votre Email";
+    }
+    else{
+        $_SESSION["ErrorEmail"] = "";
+    }
+    if (empty($_POST["country"])){
+        $_SESSION["ErrorCountry"] = "Veuillez écrire votre Pays";
+    }
+    else{
+        $_SESSION["ErrorCountry"] = "";
+    }
+    if (empty($_POST["message"])){
+        $_SESSION["ErrorMessage"] = "Veuillez écrire votre Message";
+    }
+    else{
+        $_SESSION["ErrorMessage"] = "";
+    }
 //Filtrage//
 ////////////
 
 //Isset si variable existe renvoie true
-if (isset($_POST["prenom"]) && isset($_POST["nom"]) && isset($_POST["email"]) && isset($_POST["choix"]) && isset($_POST["country"]) && isset($_POST["sexe"]) && isset($_POST["message"]) && $choixCheck && ($_POST["sexe"]=="Homme" || $_POST["sexe"]=="Femme")) { //condition vérifiant si tout à été rempli
+if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["choix"]) && !empty($_POST["country"]) && !empty($_POST["sexe"]) && !empty($_POST["message"]) && $choixCheck && ($_POST["sexe"]=="Homme" || $_POST["sexe"]=="Femme")) { //condition vérifiant si tout à été rempli
 
     $options = array(
         "prenom" => FILTER_SANITIZE_STRING,
@@ -108,15 +144,15 @@ if (isset($_POST["prenom"]) && isset($_POST["nom"]) && isset($_POST["email"]) &&
             </div>
             <div class="row">
                 <div class="input-field col s3 push-s3">
-                    <h6><?php echo("Votre pays = ".$result["country"]); ?></h6>
+                    <h6><?php echo("Votre pays : ".$result["country"]); ?></h6>
                 </div>
                 <div class="input-field col s3 push-s4">
-                    <h6><?php echo("Votre genre = ".$result["sexe"]); ?></h6>
+                    <h6><?php echo("Votre genre : ".$result["sexe"]); ?></h6>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6 push-s3">
-                    <h6><?php echo("Votre message = ".$result["message"]); ?></h6>
+                    <h6><?php echo("Votre message : ".$result["message"]); ?></h6>
                 </div>
             </div>
             <div class="row">
@@ -128,9 +164,11 @@ if (isset($_POST["prenom"]) && isset($_POST["nom"]) && isset($_POST["email"]) &&
                 </a>
             </div>
         </div>
+
     <?php
-}
-else{
+}     ///////////////////////////
+else{ //Deuxième page si erreur//
+      ///////////////////////////  
 ?>
 <h3>Il y a des erreurs, veuillez remplir de nouveau le questionnaire</h3>
 <a href="../" class=" col s2 push-s3 waves-effect waves-light btn red lighten-2"> 
