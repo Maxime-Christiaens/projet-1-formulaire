@@ -11,4 +11,9 @@ html body {
 html body .row {
   margin-bottom: 0px;
 }
+
+html body .redy {
+  color: red;
+  background-color: white;
+}
 /*# sourceMappingURL=style.css.map */

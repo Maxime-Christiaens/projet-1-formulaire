@@ -86,6 +86,7 @@ $choixCheck = true;
     else{
         $_SESSION["ErrorMessage"] = "";
     }
+////////////
 //Filtrage//
 ////////////
 
@@ -159,7 +160,7 @@ if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"])
                 <a href="../" class=" col s2 push-s3 waves-effect waves-light btn red lighten-2"> 
                     Modifier le formulaire
                 </a>
-                <a href="#" class=" col s2 push-s5 waves-effect waves-light btn" > 
+                <a href="thx.php" class=" col s2 push-s5 waves-effect waves-light btn" > 
                     Valider le formulaire
                 </a>
             </div>
@@ -170,10 +171,23 @@ if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"])
 else{ //Deuxième page si erreur//
       ///////////////////////////  
 ?>
-<h3>Il y a des erreurs, veuillez remplir de nouveau le questionnaire</h3>
-<a href="../" class=" col s2 push-s3 waves-effect waves-light btn red lighten-2"> 
-    Modifier le formulaire
-</a>
+<div class="row">
+    <div class="col s10 push-s1">
+        <div class="col s4 push-s4 pull-s4">
+            <img class="responsive-img" src="../imgs/hackers-poulette-logo.png" alt="Logo de hackers poulette">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s6 push-s3">
+        <h5>Il y a des erreurs, veuillez remplir de nouveau le questionnaire</h5>
+        <a href="../" class="col s6 push-s3 waves-effect waves-light btn red lighten-2"> 
+            Modifier le formulaire
+        </a>
+    </div>
+</div>
+
 <?php
 }
 ?>   
@@ -184,7 +198,3 @@ else{ //Deuxième page si erreur//
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="../js/formu.js"></script>
 </html>
-
-
-
-

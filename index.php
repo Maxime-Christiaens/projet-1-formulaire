@@ -20,70 +20,82 @@
             </div>
             <div class="row">
                 <div class="input-field col s3 push-s2">
-                    <input value="<?php session_start(); echo($_SESSION["prenom"]); ?>" name="prenom" id="prenom" type="text" class="validate">
+                    <input value="<?php session_start(); if(isset($_SESSION["prenom"])){echo($_SESSION["prenom"]);} ?>" name="prenom" id="prenom" type="text" class="validate">
                     <label for="prenom">Prenom</label>
-                    <p><?php echo($_SESSION["ErrorPrenom"]); ?></p>
+                    <p class="redy"><?php if(isset($_SESSION["ErrorPrenom"])){echo($_SESSION["ErrorPrenom"]);} ?></p>
                 </div>
                 <div class="input-field col s3 push-s4">
-                    <input value="<?php echo($_SESSION["nom"]); ?>" name="nom" id="nom" type="text" class="validate">
+                    <input value="<?php if(isset($_SESSION["nom"])){echo($_SESSION["nom"]);} ?>" name="nom" id="nom" type="text" class="validate">
                     <label for="nom">Nom</label>
-                    <p><?php echo($_SESSION["ErrorNom"]); ?></p>
+                    <p class="redy"><?php if(isset($_SESSION["ErrorNom"])){echo($_SESSION["ErrorNom"]);} ?></p>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s8 push-s2">
-                    <input value="<?php echo($_SESSION["email"]); ?>" name="email" type="email" id="email" class="validate">
+                    <input value="<?php if(isset($_SESSION["email"])){echo($_SESSION["email"]);} ?>" name="email" type="email" id="email" class="validate">
                     <label for="email">E-mail</label>
-                    <p><?php echo($_SESSION["ErrorEmail"]); ?></p>
+                    <p class="redy"><?php if(isset($_SESSION["ErrorEmail"])){echo($_SESSION["ErrorEmail"]);} ?></p>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s2 push-s2">
-                    <select multiple value="<?php echo($_SESSION["choix"]); ?>" name="choix[]" id="choix">
+                    <select multiple value="<?php if(isset($_SESSION["choix"])){echo($_SESSION["choix"]);} ?>" name="choix[]" id="choix">
                         <optgroup label="Quelle est ton choix ?">
                             <option value="Option 1" <?php 
-                            foreach ($_SESSION["choix"] as $value){ //permet de remettre le choix en séléctionné s'il a été précédemmment séléctionné
-                                if($value == "Option 1" ){
-                                    echo("selected");}
-                            }?> >Option 1</option>
+                            if(isset($_SESSION["choix"])){
+                                foreach ($_SESSION["choix"] as $value){ //permet de remettre le choix en séléctionné s'il a été précédemmment séléctionné
+                                    if($value == "Option 1"){
+                                        echo("selected");}
+                                }
+                            } ?> 
+                            >Option 1</option>
                             <option <?php 
-                            foreach ($_SESSION["choix"] as $value){
-                                if($value == "Option 2" ){
-                                    echo("selected");}
-                            }?> value="Option 2">Option 2</option>
+                            if(isset($_SESSION["choix"])){
+                                foreach ($_SESSION["choix"] as $value){ //permet de remettre le choix en séléctionné s'il a été précédemmment séléctionné
+                                    if($value == "Option 2"){
+                                        echo("selected");}
+                                }
+                            } ?> value="Option 2">Option 2</option>
                             <option <?php 
-                            foreach ($_SESSION["choix"] as $value){
-                                if($value == "Option 3" ){
-                                    echo("selected");}
-                            }?> value="Option 3">Option 3</option>
+                            if(isset($_SESSION["choix"])){
+                                foreach ($_SESSION["choix"] as $value){ //permet de remettre le choix en séléctionné s'il a été précédemmment séléctionné
+                                    if($value == "Option 3"){
+                                        echo("selected");}
+                                }
+                            } ?> value="Option 3">Option 3</option>
                             <option <?php 
-                            foreach ($_SESSION["choix"] as $value){
-                                if($value == "Option 4" ){
-                                    echo("selected");}
-                            }?> value="Option 4">Option 4</option>
+                            if(isset($_SESSION["choix"])){
+                                foreach ($_SESSION["choix"] as $value){ //permet de remettre le choix en séléctionné s'il a été précédemmment séléctionné
+                                    if($value == "Option 4"){
+                                        echo("selected");}
+                                }
+                            } ?> value="Option 4">Option 4</option>
                             <option <?php 
-                            foreach ($_SESSION["choix"] as $value){
-                                if($value == "Option 5" ){
-                                    echo("selected");}
-                            }?> value="Option 5">Option 5</option>
+                            if(isset($_SESSION["choix"])){
+                                foreach ($_SESSION["choix"] as $value){ //permet de remettre le choix en séléctionné s'il a été précédemmment séléctionné
+                                    if($value == "Option 5"){
+                                        echo("selected");}
+                                }
+                            } ?> value="Option 5">Option 5</option>
                         </optgroup>
                     </select>
                     <label for="choix">Quel est ton choix ?</label>
                 </div>
                 <div class="input-field col s2 push-s3">
-                    <input value="<?php echo($_SESSION["country"]); ?>" name="country" id="country" type="text" class="validate">
+                    <input value="<?php if(isset($_SESSION["country"])){echo($_SESSION["country"]);} ?>" name="country" id="country" type="text" class="validate">
                     <label for="country">Pays</label>
-                    <p><?php echo($_SESSION["ErrorCountry"]); ?></p>
+                    <p class="redy"><?php if(isset($_SESSION["ErrorCountry"])){echo($_SESSION["ErrorCountry"]);} ?></p>
                 </div>
                 <div class="input-field col s2 push-s4">
-                    <select value="<?php echo($_SESSION["sexe"]); ?>" name="sexe" id="sexe">
+                    <select value="<?php if(isset($_SESSION["sexe"])){echo($_SESSION["sexe"]);} ?>" name="sexe" id="sexe">
                         <optgroup label="Quelle est ton genre ?">
                             <option value="Homme">Masculin</option>
                             <option value="Femme" 
                             <?php 
-                            session_start();
-                            if ($_SESSION["sexe"] == "Femme"){
-                                echo("selected");
+                            if(isset($_SESSION["sexe"])){
+                                if ($_SESSION["sexe"] == "Femme"){
+                                    echo("selected");
+                                }
                             }
                             ?> >Féminin</option>
                         </optgroup>
@@ -93,9 +105,9 @@
             </div>
             <div class="row">
                 <div class="input-field col s8 push-s2">
-                    <textarea value="Bonsoir" class="materialize-textarea" name="message" id="message"><?php session_start(); echo($_SESSION["message"]); ?></textarea>
+                    <textarea value="Bonsoir" class="materialize-textarea" name="message" id="message"><?php if(isset($_SESSION["message"])){echo($_SESSION["message"]);} ?></textarea>
                     <label for="message">Un message à nous transmettre ?</label>
-                    <p><?php echo($_SESSION["ErrorMessage"]); ?></p>
+                    <p class="redy"><?php if(isset($_SESSION["ErrorMessage"])){echo($_SESSION["ErrorMessage"]);} ?></p>
                 </div>
             </div>
             <div class="row">
