@@ -112,8 +112,10 @@
             </div>
             <div class="row">
                 <button class=" col s2 push-s5 waves-effect waves-light btn" type="submit"> 
-                    Envoyez le formulaire
+                    Envoyer
                 </button>
+                <!--HoneyPot-->
+                <input type="checkbox" name="send" value="1" style="display:none !important" autocomplete="off">
             </div>
         </form>
     </div>

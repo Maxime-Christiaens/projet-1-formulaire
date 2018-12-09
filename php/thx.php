@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="row">
-            <h2 class="col s4 push-s4 pull-s4"> Merci pour votre réponse </h2>   
+            <h5 class="centreLeTexte" style="text-align:center"> Merci pour votre réponse</h5>   
     </div>
 </body>
 <!-- JQuery -->

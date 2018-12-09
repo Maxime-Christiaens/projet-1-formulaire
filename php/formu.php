@@ -11,9 +11,11 @@
 </head>
 <body>
 <?php
+
 //////////////////////////
 //Créations des sessions//
 //////////////////////////
+
 session_start();
 $_SESSION["prenom"] = $_POST["prenom"];
 $_SESSION["nom"] = $_POST["nom"];
@@ -26,10 +28,10 @@ if(empty($_POST["choix"])){
     $_POST["choix"] = ["Option 1"];
 }
 $_SESSION["choix"] = $_POST["choix"];
+
 //////////////////
 //Filtrage Choix//
 //////////////////
-
 
 $AllChoice = ["Option 1", "Option 2", "Option 3", "Option 4", "Option 5"];
 //stock tout les variables existantes
@@ -53,9 +55,11 @@ $choixCheck = false;
 if($k == count($_SESSION["choix"])){
 $choixCheck = true;
 }
+
 //////////////////////
 ///Message d'erreurs//
 //////////////////////
+
     if (empty($_POST["prenom"])){
         $_SESSION["ErrorPrenom"] = "Veuillez écrire votre prénom";
     }
@@ -86,12 +90,13 @@ $choixCheck = true;
     else{
         $_SESSION["ErrorMessage"] = "";
     }
+
 ////////////
 //Filtrage//
 ////////////
 
 //Isset si variable existe renvoie true
-if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["choix"]) && !empty($_POST["country"]) && !empty($_POST["sexe"]) && !empty($_POST["message"]) && $choixCheck && ($_POST["sexe"]=="Homme" || $_POST["sexe"]=="Femme")) { //condition vérifiant si tout à été rempli
+if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["choix"]) && !empty($_POST["country"]) && !empty($_POST["sexe"]) && !empty($_POST["message"]) && $choixCheck && ($_POST["sexe"]=="Homme" || $_POST["sexe"]=="Femme") && empty($_REQUEST['send'])) { //condition vérifiant si tout à été rempli
 
     $options = array(
         "prenom" => FILTER_SANITIZE_STRING,
