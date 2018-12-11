@@ -1,3 +1,6 @@
+<?php 
+session_start(); //tjs en premier
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -20,7 +23,7 @@
             </div>
             <div class="row">
                 <div class="input-field col s3 push-s2">
-                    <input value="<?php session_start(); if(isset($_SESSION["prenom"])){echo($_SESSION["prenom"]);} ?>" name="prenom" id="prenom" type="text" class="validate">
+                    <input value="<?php if(isset($_SESSION["prenom"])){echo($_SESSION["prenom"]);} ?>" name="prenom" id="prenom" type="text" class="validate">
                     <label for="prenom">Prenom</label>
                     <p class="redy"><?php if(isset($_SESSION["ErrorPrenom"])){echo($_SESSION["ErrorPrenom"]);} ?></p>
                 </div>

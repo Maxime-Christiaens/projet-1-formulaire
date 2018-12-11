@@ -11,12 +11,11 @@
 </head>
 <body>
 <?php
-
+session_start();
 //////////////////////////
 //Créations des sessions//
 //////////////////////////
 
-session_start();
 $_SESSION["prenom"] = $_POST["prenom"];
 $_SESSION["nom"] = $_POST["nom"];
 $_SESSION["email"] = $_POST["email"];
